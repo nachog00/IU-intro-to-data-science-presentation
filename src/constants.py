@@ -11,9 +11,9 @@ STYLE = {
 }
 
 PRESENTATION_DETAILS = {
-    'TITLE': "TITLE",
-    'SUBTITLE': "Subtitle",
-    'MODULE_NAME': "Module name",
-    'MODULE_CODE': "Module code",
+    'TITLE': "Linear Regressions",
+    'SUBTITLE': "Oral Assignment",
+    'MODULE_NAME': "Intro to Data Science",
+    'MODULE_CODE': "DLBDSIDS01",
     'PRESENTER_NAME': "Ignacio Geoghegan",
 }
