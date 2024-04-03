@@ -14,6 +14,7 @@ def slide1(scene: MovingCameraSlide):
     scene.play(slide_title.animate.scale(0.5).to_edge(UP))
 
     header = scene.canvas["header"]
+    
     sections_data = [
         {
             "title": "Supervised\nLearning",
@@ -55,11 +56,11 @@ def slide1(scene: MovingCameraSlide):
                     data["texts"],
                 )
             ).arrange(DOWN),
-        ).arrange(DOWN, buff=0.5)
+        ).arrange_in_grid(rows=3, cols=1, buff=1.5, row_heights=[2, 4, 3], row_alignments=["u", "c", "u"])
 
     sections = (
         VGroup(*map(section_obj, sections_data))
-        .arrange(RIGHT, buff=3)
+        .arrange_in_grid(rows=1, cols=3, buff=3, row_allignments=["u"], col_widths=[5,5,5])
         .scale_to_fit_width(10)
     ).next_to(header, DOWN, buff=1)
     
@@ -71,7 +72,7 @@ def slide1(scene: MovingCameraSlide):
 
     scene.next_slide()
 
-    zoom_loop(scene, sections, animation, next_slide=True)
+    zoom_loop(scene, sections, animation, next_slide=True, scale_factor=0.6)
     
     scene.next_slide()
     
