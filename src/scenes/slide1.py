@@ -3,6 +3,7 @@ from ..classes.moving_camera_slide import MovingCameraSlide
 from ..utils.zoom_loop import zoom_loop
 from ..utils.LinearRegressionSimple import LinearRegressionSimple
 from ..utils.KMeansGraph import KMeansGraph
+from ..utils.SemiSupervisedGraph import SemiSupervisedGraph
 from ..constants import FONT_SIZES
 
 
@@ -35,7 +36,7 @@ def slide1(scene: MovingCameraSlide):
         },
         {
             "title": "Semi-Supervised\nLearning",
-            "sub": LinearRegressionSimple(scene),
+            "sub": SemiSupervisedGraph(scene),
             "texts": [
                 "Has some target outcome data",
                 "Iteratively adds labels to unlabeled data",
@@ -74,4 +75,4 @@ def slide1(scene: MovingCameraSlide):
     
     scene.next_slide()
     
-    scene.wipe(sections, slide_title )
+    # scene.play(FadeOut(slide_title), FadeOut(sections))
