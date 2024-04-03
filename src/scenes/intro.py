@@ -22,7 +22,7 @@ def intro(scene: MovingCameraSlide):
         # font=STYLE["FONT_FAMILY"],
     ).next_to(module_name, DOWN)
     
-    module_group = VGroup(module_name, module_code).arrange(DOWN, buff=0.2).align_to(logo_iu, ORIGIN)
+    module_group = VGroup(module_name, module_code).arrange(DOWN, buff=0.2, aligned_edge=RIGHT)
     header_right = VGroup(module_group, logo_iu).arrange(RIGHT, buff=0.5)
     # animate logo_ui moving to its place within header_rigth
     scene.play(Write(logo_iu))
@@ -31,8 +31,8 @@ def intro(scene: MovingCameraSlide):
     scene.next_slide()
     scene.play(header_right.animate.scale(0.4).to_corner(UR))
     
-    initials = Text("IG", font_size=FONT_SIZES["TITLE"], color=BLUE)
-    circle = Circle(color=BLUE, radius=0.5).move_to(initials)
+    initials = Text("IG", font_size=FONT_SIZES["TITLE"] , color=GREEN_E)
+    circle = Circle(radius=0.5, color=GREEN_E).move_to(initials)
     logo = VGroup(initials, circle)
     title = Text(
         PRESENTATION_DETAILS["TITLE"],
@@ -45,8 +45,8 @@ def intro(scene: MovingCameraSlide):
         # font=STYLE["FONT_FAMILY"],
     ).next_to(title, DOWN)
 
-    titles = VGroup(title, subtitle).arrange(DOWN, buff=0.2)
-    header_left = VGroup(logo, titles).arrange(RIGHT, buff=0.2)
+    titles = VGroup(title, subtitle).arrange(DOWN, buff=0.2 , aligned_edge=LEFT)
+    header_left = VGroup(logo, titles).arrange(RIGHT, buff=0.5)
     
     scene.play(Write(initials), DrawBorderThenFill(circle), Write(titles))
     scene.next_slide()

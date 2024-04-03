@@ -1,13 +1,13 @@
 FONT_SIZES = {
-    'BODY_1': 12,
-    'BODY_2': 10,
+    'BODY_1': 18,
+    'BODY_2': 14,
     'TITLE': 50,
     'SUBTITLE': 35,
-    'CAPTION': 8,
+    'CAPTION': 12,
 }
 
 STYLE = {
-    "FONT_FAMILY": "Arial",
+    "FONT_FAMILY": "Times New Roman",
 }
 
 PRESENTATION_DETAILS = {
