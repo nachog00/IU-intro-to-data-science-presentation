@@ -5,6 +5,7 @@ from ..classes.moving_camera_slide import MovingCameraSlide
 def zoom_loop(
     scene: MovingCameraSlide,
     obj: VGroup,
+    animation,
     zoom_speed: float = None,
     scale_factor: float = 0.5,
     wait_time: float = None,
@@ -21,12 +22,15 @@ def zoom_loop(
         wait_time (float, optional): The amount of time to wait after each zoom animation. Defaults to 1.
         zoom_speed (float, optional): The speed of the zoom animation. Defaults to 0.5.
     """
+    if not animation:
+        animation = lambda x: None
     scene.camera.frame.save_state()
     for item in obj:
         scene.play(
             scene.camera.frame.animate.scale(scale_factor).move_to(item),
             run_time=zoom_speed if zoom_speed else 1,
         )
+        animation(item)
         if next_slide:
             scene.next_slide()
         else:

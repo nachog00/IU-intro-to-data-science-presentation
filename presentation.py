@@ -14,4 +14,4 @@ class Presentation(MovingCameraSlide):
         intro(self)
         # SLIDE 1
         quote(self)
-        
+        slide1(self)
