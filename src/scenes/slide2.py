@@ -1,26 +1,28 @@
 from manim import *
 from ..classes.moving_camera_slide import MovingCameraSlide
 from ..utils.zoom_loop import zoom_loop
+from ..utils.LinearRegressionPlus import LinearRegressionPlus
 
 def slide2(scene:MovingCameraSlide):
-    slide_title = Text("Slide 2")
+    slide_title = Text("Linear Regression")
     scene.play(Write(slide_title))
-    scene.next_slide(notes="Don't forget to tell about this!!!!!")
+    scene.next_slide(notes="")
     scene.play(slide_title.animate.scale(0.5).to_edge(UP))
     
     header = scene.canvas["header"]
+    
     content = VGroup().next_to(header, DOWN)
     
-    content.add(Square(color=BLUE))
-    content.add(Square(color=RED))
-    content.add(Square(color=GREEN))
-    content.arrange(RIGHT, buff=2)
+    lr_graph = LinearRegressionPlus(scene)
     
-    scene.add(content)
-    scene.play(Write(content))
+    content_height = config.frame_height - header.get_height()
     
-    scene.next_slide()
+    content.add(
+        lr_graph.get_graph()
+    ).scale_to_fit_height(content_height*.8).next_to(header, DOWN, buff=0.5)
     
-    zoom_loop(scene, content, next_slide=True)
+    content[0].render_animated()
+    
+    scene.next_slide(notes="Explain the formulas")
     
     # scene.wipe()
