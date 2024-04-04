@@ -76,4 +76,4 @@ def slide1(scene: MovingCameraSlide):
     
     scene.next_slide()
     
-    # scene.play(FadeOut(slide_title), FadeOut(sections))
+    scene.play(FadeOut(slide_title), FadeOut(sections))

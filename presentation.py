@@ -15,3 +15,4 @@ class Presentation(MovingCameraSlide):
         # SLIDE 1
         quote(self)
         slide1(self)
+        slide2(self)
