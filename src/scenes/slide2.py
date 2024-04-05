@@ -13,7 +13,7 @@ def slide2(scene:MovingCameraSlide):
     
     content = VGroup().next_to(header, DOWN)
     
-    lr_graph = LinearRegressionPlus(scene)
+    lr_graph = LinearRegressionPlus()
     
     content_height = config.frame_height - header.get_height()
     
@@ -22,7 +22,7 @@ def slide2(scene:MovingCameraSlide):
     ).scale_to_fit_height(content_height*.8
                           ).next_to(header, DOWN, buff=0.5)
     
-    content[0].render_animated()
+    content[0].render_animated(scene)
     
     scene.next_slide(notes="Explain the formulas")
     

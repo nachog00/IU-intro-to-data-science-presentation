@@ -1,5 +1,5 @@
 from manim import *
-from src.scenes.slide1 import slide1 as scene
+from src.scenes.slide2 import slide2 as scene
 from src.classes.moving_camera_slide import MovingCameraSlide
 import subprocess
 
@@ -13,4 +13,3 @@ class TestClass(MovingCameraSlide):
 if __name__ == "__main__":
     proccess = subprocess.run(["manim", "render", "-ql", "driver.py", "TestClass"])
     # proccess = subprocess.run(["manim-slides", "convert", "TestClass" , "_site/test.html"])
-    
