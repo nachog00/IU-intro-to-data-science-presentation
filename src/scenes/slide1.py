@@ -18,7 +18,7 @@ def slide1(scene: MovingCameraSlide):
     sections_data = [
         {
             "title": "Supervised\nLearning",
-            "sub": LinearRegressionSimple(scene),
+            "sub": LinearRegressionSimple(),
             "texts": [
                 "Has target outcomes",
                 "Aims to predict outcomes",
@@ -28,7 +28,7 @@ def slide1(scene: MovingCameraSlide):
         },
         {
             "title": "Unsupervised\nLearning",
-            "sub": KMeansGraph(scene),
+            "sub": KMeansGraph(),
             "texts": [
                 "No target outcomes",
                 "Aims to find patterns",
@@ -37,11 +37,11 @@ def slide1(scene: MovingCameraSlide):
         },
         {
             "title": "Semi-Supervised\nLearning",
-            "sub": SemiSupervisedGraph(scene),
+            "sub": SemiSupervisedGraph(),
             "texts": [
                 "Has some target outcome data",
                 "Iteratively adds labels to unlabeled data",
-                "Mix of supervised and unsupervised learning",
+                "Mix of supervised and\nunsupervised learning",
             ],
         },
     ]
@@ -60,14 +60,14 @@ def slide1(scene: MovingCameraSlide):
 
     sections = (
         VGroup(*map(section_obj, sections_data))
-        .arrange_in_grid(rows=1, cols=3, buff=3, row_allignments=["u"], col_widths=[5,5,5])
+        .arrange_in_grid(rows=1, cols=3, buff=5, row_allignments=["u"], col_widths=[5,5,5])
         .scale_to_fit_width(10)
     ).next_to(header, DOWN, buff=1)
     
     def animation (section):
         title, graph, texts = section
         scene.play(Write(title))
-        graph.render_animated()
+        graph.render_animated(scene)
         scene.play(Write(texts))
 
     scene.next_slide()
@@ -76,4 +76,4 @@ def slide1(scene: MovingCameraSlide):
     
     scene.next_slide()
     
-    scene.play(FadeOut(slide_title), FadeOut(sections))
+    scene.wipe(slide_title,sections, direction=DOWN)

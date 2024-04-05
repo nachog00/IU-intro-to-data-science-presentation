@@ -19,7 +19,8 @@ def slide2(scene:MovingCameraSlide):
     
     content.add(
         lr_graph.get_graph()
-    ).scale_to_fit_height(content_height*.8).next_to(header, DOWN, buff=0.5)
+    ).scale_to_fit_height(content_height*.8
+                          ).next_to(header, DOWN, buff=0.5)
     
     content[0].render_animated()
     

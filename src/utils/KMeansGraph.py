@@ -4,9 +4,7 @@ import numpy as np
 COLORS = [RED, GREEN, BLUE, YELLOW, PURPLE, ORANGE, PINK]
 
 class KMeansGraph():
-    def __init__(self, scene):
-        
-        self.scene = scene
+    def __init__(self):
         
         np.random.seed(8)
         self.n = 40
@@ -45,12 +43,13 @@ class KMeansGraph():
         return VGroup(*points)
     
     
-    def render_animated( self ):
-        self.scene.play(Write(self.axes))
-        self.scene.play(Write(self.centroids) , Write(self.points))
+    def render_animated( self , scene ):
+        scene.play(Write(self.axes))
+        scene.play(Write(self.centroids) , Write(self.points))
         
-    def render_static( self ):
-        self.scene.add(self.axes , self.centroids , self.points)
+        
+    def render_static( self, scene ):
+        scene.add(self.axes , self.centroids , self.points)
         
     def get_graph(self):
         graph = VGroup(self.axes , self.centroids , self.points)

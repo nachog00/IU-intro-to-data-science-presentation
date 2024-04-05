@@ -5,7 +5,7 @@ from ..constants import FONT_SIZES
 
 def quote(scene:MovingCameraSlide):
     
-    quote_text = Text("Truth is much to complicated to\n allow anything but approximations.", font_size=FONT_SIZES["TITLE"])
+    quote_text = Text("\"Truth is much to complicated to\n allow anything but approximations.\"", font_size=FONT_SIZES["TITLE"])
     author = Text("- John von Neumann", color=GREEN_D , font_size=FONT_SIZES["SUBTITLE"])
     
     quote_group = VGroup(quote_text, author).arrange(DOWN, buff=0.25 , aligned_edge=RIGHT)

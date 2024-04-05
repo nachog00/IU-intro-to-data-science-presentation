@@ -3,10 +3,7 @@ import numpy as np
 from ..classes.moving_camera_slide import MovingCameraSlide
 
 class LinearRegressionSimple():
-    def __init__(self, scene:MovingCameraSlide):
-        # scene is the scene where the graph will be rendered 
-        self.scene = scene
-        
+    def __init__(self):
         max_x = 5
         n = 10
         fc = lambda x: x + np.random.normal(0, 0.6, n)
@@ -35,17 +32,17 @@ class LinearRegressionSimple():
     def get_regression_params(self, x, y):
         return np.polyfit(x, y, 1)
     
-    def render_animated(self):
-        self.scene.play(Write(self.axes))
-        self.scene.play(Write(self.dots))
-        self.scene.play(Write(self.line))
-        self.scene.play(Write(self.error_lines))
+    def render_animated(self, scene):
+        scene.play(Write(self.axes))
+        scene.play(Write(self.dots))
+        scene.play(Write(self.line))
+        scene.play(Write(self.error_lines))
         
-    def render_static(self):
-        self.scene.add(self.axes)
-        self.scene.add(self.dots)
-        self.scene.add(self.line)
-        self.scene.add(self.error_lines)
+    def render_static(self,scene):
+        scene.add(self.axes)
+        scene.add(self.dots)
+        scene.add(self.line)
+        scene.add(self.error_lines)
         
     def get_graph(self):
         graph = VGroup(self.axes, self.dots, self.line, self.error_lines)
