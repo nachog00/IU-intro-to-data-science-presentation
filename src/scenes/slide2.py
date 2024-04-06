@@ -26,4 +26,7 @@ def slide2(scene:MovingCameraSlide):
     
     scene.next_slide(notes="Explain the formulas")
     
-    # scene.wipe()
+    lr_graph.FadeOut(scene)
+    content.remove(content[0])
+    scene.play(FadeOut(slide_title))
+    
