@@ -1,5 +1,5 @@
 from manim import *
-from src.scenes.slide2 import slide2 as scene
+from src.scenes.slide3 import slide3 as scene
 from src.classes.moving_camera_slide import MovingCameraSlide
 import subprocess
 

@@ -6,6 +6,7 @@ from src.scenes.intro import intro
 from src.scenes.quote import quote
 from src.scenes.slide1 import slide1
 from src.scenes.slide2 import slide2
+from src.scenes.slide3 import slide3
 
 class Presentation(MovingCameraSlide):
     def construct(self):
@@ -16,3 +17,4 @@ class Presentation(MovingCameraSlide):
         quote(self)
         slide1(self)
         slide2(self)
+        slide3(self)
