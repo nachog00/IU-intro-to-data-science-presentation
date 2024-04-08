@@ -25,9 +25,13 @@ def zoom_loop(
     if not animation:
         animation = lambda x: None
     scene.camera.frame.save_state()
-    for item in obj:
+    for i,item in enumerate(obj):
+        if i == 0:
+            camera_animation = scene.camera.frame.animate.scale(scale_factor).move_to(item)
+        else:
+            camera_animation = scene.camera.frame.animate.move_to(item)
         scene.play(
-            scene.camera.frame.animate.scale(scale_factor).move_to(item),
+            camera_animation,
             run_time=zoom_speed if zoom_speed else 1,
         )
         animation(item)
@@ -35,4 +39,4 @@ def zoom_loop(
             scene.next_slide()
         else:
             scene.wait(wait_time if wait_time else 1)
-        scene.play(Restore(scene.camera.frame))
+    scene.play(Restore(scene.camera.frame))

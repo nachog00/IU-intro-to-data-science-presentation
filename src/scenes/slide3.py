@@ -63,4 +63,6 @@ def slide3(scene: MovingCameraSlide):
         
     second_texts.arrange(DOWN, buff=0.2)
     
+    scene.next_slide()
+    
     scene.play(Transform(first_texts, second_texts))
